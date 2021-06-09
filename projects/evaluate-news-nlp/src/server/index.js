@@ -14,7 +14,7 @@ app.use(express.static('dist'))
 
 console.log(__dirname)
 
-
+async function fetchResult(){
 const result = await fetch("https://api.meaningcloud.com/sentiment-2.1?key=" + process.env.API_KEY + "&url=" + "user input" + "&lang=en")
     try {
         console.log(result)
@@ -26,6 +26,20 @@ const result = await fetch("https://api.meaningcloud.com/sentiment-2.1?key=" + p
 
         
     }
+
+}
+fetchResult();
+
+app.post('/add-url', async (req, res) => {
+    try {
+        console.log(result)
+        const response = await result.json();
+        res.send(response)
+        console.log(response)
+    } catch (error) {
+        console.log (error.message)
+    }
+})
 
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
