@@ -12,6 +12,7 @@ const urlToAPI = "https://api.meaningcloud.com/sentiment-2.1?key=" + process.env
 
 const app = express()
 
+app.use(cors())
 app.use(express.static('dist'))
 app.use(bodyParser.json())
 app.use(express.static('dist'))
