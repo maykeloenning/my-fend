@@ -1,3 +1,5 @@
+import { checkForName } from './nameChecker'
+
 const post = async (url = '', data = {}) => {
     const response = await fetch (url, {
         method: 'POST',
@@ -23,11 +25,12 @@ function handleSubmit(event) {
     checkForName(formText)
 
     console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
+    post('http://localhost:8080/test', { msg: formText })
     .then(res => res.json())
-    .then(function(res) {
+    .then(function (res) {
         document.getElementById('results').innerHTML = res.message
     })
 }
 
 export { handleSubmit }
+
