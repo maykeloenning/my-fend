@@ -1,15 +1,13 @@
 // Import the js file to test
-import { checkForName  } from "../src/client/js/nameChecker"
+import { update } from "../src/client/js/updateUI"
 
 
 describe("Testing the submit functionality", () => {
     // async function
-    test("Testing the postData function", () => {
-          const input = [{url: 'http://localhost:8080/language', newInfo: "Hello, it's very nice to meet you"}];
-          const output = [{
-          }];
+    test("Testing the update function", () => {
+          const output = [{}];
           try {
-            expect(checkForName(input)).toBe(output);
+            expect(update()).toContain(output);
             done();
           } catch (error) {
             console.log(error);
@@ -18,16 +16,14 @@ describe("Testing the submit functionality", () => {
     );
 });
 
-
-
 // The describe() function takes two arguments - a string description, and a test suite as a callback function.  
 // A test suite may contain one or more related tests    
 //describe("Testing the submit functionality", () => {
     // The test() function has two arguments - a string description, and an actual test as a callback function.  
-//    test("Testing the handleSubmit() function", () => {
+   // test("Testing the handleSubmit() function", () => {
            // Define the input for the function, if any, in the form of variables/array
            // Define the expected output, if any, in the form of variables/array
            // The expect() function, in combination with a Jest matcher, is used to check if the function produces the expected output
            // The general syntax is `expect(myFunction(arg1, arg2, ...)).toEqual(expectedValue);`, where `toEqual()` is a matcher
-//           expect(checkForName ).toBeDefined();
+        //   expect(update ).toBeDefined();
 //})});
