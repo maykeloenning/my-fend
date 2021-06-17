@@ -96,7 +96,7 @@ app.post('/language', async function(req, res) {
       console.log("error", error);
     }
     console.log(projectData);
-    res.send(projectData);
+    res.send(newEntry);
   });
   
   // GET path to update projectData client-side and change the UI
