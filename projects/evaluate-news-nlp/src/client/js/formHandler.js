@@ -18,7 +18,7 @@ const post = async (url = '', data = {}) => {
     }
 }
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
@@ -26,11 +26,12 @@ function handleSubmit(event) {
     checkForName(formText)
 
     console.log("::: Form Submitted :::")
-    post('http://localhost:8080/test', { msg: formText })
-    .then(res => res.json())
-    .then(function (res) {
-        document.getElementById('results').innerHTML = res.message
-    })
+    const res = await post ('http://localhost:8080/language', { msg: formText })
+    console.log('res=======>', res)
+    document.getElementById('sentence').innerHTML = res.sentence
+    document.getElementById('feeling').innerHTML = res.feeling
+    document.getElementById('irony').innerHTML = res.irony
+    document.getElementById('confidence').innerHTML = res.confidence
 }
 
 function isUrlValid(userInput) {

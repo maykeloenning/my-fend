@@ -76,7 +76,7 @@ app.post('/language', async function(req, res) {
     };
   
     const apiKey = process.env.API_KEY;
-    const userInput = data.formText;
+    const userInput = data.msg;
     console.log(userInput);
   
   // change "&of=json&url" to "&of=json&txt" to accept user input
