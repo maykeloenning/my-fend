@@ -12,20 +12,3 @@ describe("Testing the submit functionality", () => {
            // The general syntax is `expect(myFunction(arg1, arg2, ...)).toEqual(expectedValue);`, where `toEqual()` is a matcher
          expect(handleSubmit).toBeDefined();
 })});
-
-
-/* describe("Testing the submit functionality", () => {
-    test("Testing the handleSubmit() function", () => {
-        document.body.innerHTML =
-          '<form class="" id="form">' +
-          '    <input id="name" type="text" name="input" value=""  placeholder="Name">' +
-          '    <input type="submit" name="" value="submit">' +
-          '</form>';
-  
-          const event = { preventDefault: () => {} };
-          const spy = jest.spyOn(event, 'preventDefault');
-          handleSubmit(event)
-          expect(spy).toHaveBeenCalled()
-    })
-  }); */
-  

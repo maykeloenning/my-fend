@@ -1,4 +1,5 @@
 // Update UI
+/*
 async function update() {
     const request = await fetch("http://localhost:8080/updatePage");
     try {
@@ -14,3 +15,4 @@ async function update() {
 };
 
 export { update }
+*/

@@ -1,5 +1,5 @@
 import { checkForName } from './nameChecker'
-import { update } from './updateUI' 
+//import { update } from './updateUI' 
 
 const post = async (url = '', data = {}) => {
     const response = await fetch (url, {
@@ -25,13 +25,15 @@ async function handleSubmit(event) {
     let formText = document.getElementById('name').value
     checkForName(formText)
 
-    console.log("::: Form Submitted :::")
-    const res = await post ('http://localhost:8080/language', { msg: formText })
-    console.log('res=======>', res)
-    document.getElementById('sentence').innerHTML = res.sentence
-    document.getElementById('feeling').innerHTML = res.feeling
-    document.getElementById('irony').innerHTML = res.irony
-    document.getElementById('confidence').innerHTML = res.confidence
+    if (isUrlValid(formText)) {
+        console.log("::: Form Submitted :::")
+        const res = await post ('http://localhost:8080/language', { msg: formText })
+        console.log('res=======>', res)
+        document.getElementById('sentence').innerHTML = res.sentence
+        document.getElementById('feeling').innerHTML = res.feeling
+        document.getElementById('irony').innerHTML = res.irony
+        document.getElementById('confidence').innerHTML = res.confidence
+    }
 }
 
 function isUrlValid(userInput) {
